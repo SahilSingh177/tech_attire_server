@@ -40,31 +40,31 @@ const STRIPE_WEBHOOK_SECRET = process.env.STRIPE_WEBHOOK_SECRET || "";
 const plugins = [
   `medusa-fulfillment-manual`,
   `medusa-payment-manual`,
-  {
-    resolve: `medusa-plugin-algolia`,
-    options: {
-      application_id: process.env.ALGOLIA_APP_ID,
-      admin_api_key: process.env.ALGOLIA_ADMIN_API_KEY,
-      settings: {
-        products: {
-          searchableAttributes: ["title", "description"],
-          attributesToRetrieve: [
-            "title",
-            "description",
-            "handle",
-            "thumbnail"
-          ],
-        },
-      },
-    },
-  },
-  {
-    resolve: `medusa-payment-stripe`,
-    options: {
-      api_key: process.env.STRIPE_API_KEY,
-      webhook_secret: process.env.STRIPE_WEBHOOK_SECRET,
-    },
-  },
+  // {
+  //   resolve: `medusa-plugin-algolia`,
+  //   options: {
+  //     application_id: process.env.ALGOLIA_APP_ID,
+  //     admin_api_key: process.env.ALGOLIA_ADMIN_API_KEY,
+  //     settings: {
+  //       products: {
+  //         searchableAttributes: ["title", "description"],
+  //         attributesToRetrieve: [
+  //           "title",
+  //           "description",
+  //           "handle",
+  //           "thumbnail"
+  //         ],
+  //       },
+  //     },
+  //   },
+  // },
+  // {
+  //   resolve: `medusa-payment-stripe`,
+  //   options: {
+  //     api_key: process.env.STRIPE_API_KEY,
+  //     webhook_secret: process.env.STRIPE_WEBHOOK_SECRET,
+  //   },
+  // },
 ];
 
 module.exports = {
@@ -78,12 +78,12 @@ module.exports = {
     // database_type: "sqlite",
     store_cors: STORE_CORS,
     admin_cors: ADMIN_CORS,
-    images: {
-      domains: [
-        "127.0.0.1",
-          //any other domains...
-      ],
-    },
+    // images: {
+    //   domains: [
+    //     "127.0.0.1",
+    //       //any other domains...
+    //   ],
+    // },
   },
   plugins,
 };
